@@ -2,15 +2,21 @@ let name = {
 	a: 'sahil',
 };
 
-let fullName = function () {
-	console.log(this);
-};
-
 let name2 = {
 	a: 'ankur',
 };
 
-//fullName();
+let fullName = function (city, college) {
+	console.log(this.a + ' ' + college + ' ' + city);
+};
 
-let x = { ...name, class: 'classplus' };
-console.log(x);
+// call
+fullName.call(name, 'Jaipur', 'NIT');
+
+//apply
+fullName.apply(name, ['Jaipur', 'NIT']);
+
+//bind
+
+let fullNameValue = fullName.bind(name, 'Jaipur', 'NIT');
+fullNameValue();
