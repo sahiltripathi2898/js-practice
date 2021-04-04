@@ -28,7 +28,7 @@ setTimeout(() => {
 	clearInterval(intervalOut);
 }, 3000);
 
-//
+//SetTimeout used as setInterval but with varying time
 let delay = 1000;
 
 let timer = setTimeout(function request() {
