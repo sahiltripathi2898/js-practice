@@ -22,3 +22,27 @@ Guest.prototype.sayHi = function () {
 
 let Guest1 = new Guest('Ankur');
 Guest1.sayHi();
+
+////////////////////
+
+class Car {
+	constructor(brand) {
+		this.brand = brand;
+	}
+}
+
+class SuperCar extends Car {
+	constructor(brand, name) {
+		super(brand);
+		this.name = name;
+	}
+	display() {
+		console.log(this.name + ' ' + this.brand);
+	}
+}
+
+let ferrari = new SuperCar('ferrari', 'c7');
+ferrari.display();
+
+//////////
+//Arrow functions
