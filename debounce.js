@@ -2,52 +2,21 @@
 // After a specified time only the apiCall should be made ,
 //if another apiCall is made before the time then that apiCall should overide the earlier one
 
-function deBounce(time) {
-	let timer;
-	timer = setTimeout(() => {
-		apiCall();
-	}, time);
-}
-function apiCall(str) {
-	console.log(str + ' ' + 'debounce ');
+///<input type="text" onkeyup="betterFunction()">
+
+let c = 0;
+function apiCall() {
+	console.log('API calls', c++);
 }
 
-let bounced = deBounce(2000);
-
-bounced('A');
-bounced('B');
-
-setTimeout(() => {
-	bounced('C');
-}, 1000);
-
-////
-
-function debounce(func, timeout = 300) {
+const deBounce = (func, delay) => {
 	let timer;
-	return (...args) => {
+	return function () {
 		clearTimeout(timer);
 		timer = setTimeout(() => {
-			func.apply(this, args);
-		}, timeout);
-	};
-}
-function saveInput() {
-	console.log('Saving data');
-}
-const processChange = debounce(() => saveInput());
-
-/////
-const debounce = (func, wait) => {
-	let timeout;
-
-	return function executedFunction(...args) {
-		const later = () => {
-			clearTimeout(timeout);
-			func(...args);
-		};
-
-		clearTimeout(timeout);
-		timeout = setTimeout(later, wait);
+			apiCall();
+		}, delay);
 	};
 };
+
+const betterFunction = deBounce(apiCall, 600);
