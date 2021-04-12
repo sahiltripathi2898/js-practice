@@ -9,9 +9,9 @@
 	<body>
 		<input type="text" onkeyup="betterFunction()" />
 		<script>
-			let c = 0;
+			let c = 1;
 			function apiCall() {
-				console.log('API calls', c++);
+				console.log('API call', c++);
 			}
 
 			const deBounce = (func, delay) => {
@@ -19,7 +19,7 @@
 				return function () {
 					clearTimeout(timer);
 					timer = setTimeout(() => {
-						apiCall();
+						func();
 					}, delay);
 				};
 			};
