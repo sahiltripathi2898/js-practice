@@ -17,7 +17,7 @@ loadScript('abc', () => {
 let promise = new Promise((resolve, reject) => {
 	setTimeout(() => {
 		resolve('Done !');
-	}, 1000);
+	}, 2000);
 })
 	.then((res) => console.log(res))
 	.catch((err) => console.log(err));
