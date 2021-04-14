@@ -3,7 +3,7 @@
 //Debounce makes api calls after a delay in action , eg keyup
 
 const expensive = () => {
-	console.log('Expensive resize');
+	console.log('Expensive resize can be improved by throttle');
 };
 
 const throttle = function (func, delay) {
