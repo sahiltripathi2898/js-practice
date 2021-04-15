@@ -6,12 +6,14 @@ let name = {
 	lastName: 'Tripathi',
 };
 
-let printName = function () {
-	console.log(this.firstName + ' ' + this.lastName);
+let printName = function (city, country) {
+	console.log(
+		this.firstName + ' ' + this.lastName + ' , ' + city + ' ' + country
+	);
 };
 
 // Normal bind function
-let normalBind = printName.bind(name);
+let normalBind = printName.bind(name, 'Jaipur', 'India');
 normalBind();
 
 // Self made bind function
@@ -22,11 +24,13 @@ Function.prototype.myBind = function (...args) {
 	// here 'this' will point to the printName method which is called upon
 	let currMethod = this;
 
+	// Here ...args has all the arguements , since args[0] will always be the object , we need to get the rest of the arguements
+	let params = args.slice(1); // It's in form of array so we'll need .apply() instead of .call()
 	// Will return a function , since bind functions return a function
 	return function () {
-		currMethod.call(args[0]);
+		currMethod.apply(args[0], params);
 	};
 };
 
-let selfBind = printName.myBind(name);
+let selfBind = printName.myBind(name, 'Jaipur', 'India');
 selfBind();
