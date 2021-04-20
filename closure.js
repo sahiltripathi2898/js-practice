@@ -1,4 +1,4 @@
-// Examples of closures
+// Example 1 of closures
 
 function init() {
 	var name = 'Mozilla'; // name is a local variable created by init
@@ -9,3 +9,5 @@ function init() {
 	displayName();
 }
 init();
+
+// Example 2 closures
